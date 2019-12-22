@@ -7,9 +7,8 @@
 }
 
 
-/* normal or visited link */
+/* visited link */
 
-a,
 a:visited {
     color: black;
 }
