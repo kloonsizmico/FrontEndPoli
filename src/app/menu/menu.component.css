@@ -7,12 +7,16 @@
 }
 
 
-/* visited link */
+/* normal or visited link */
+
+a,
 a:visited {
-  color: black;
+    color: black;
 }
 
+
 /* mouse over link */
+
 a:hover {
-  color: dodgerblue;
+    color: dodgerblue;
 }

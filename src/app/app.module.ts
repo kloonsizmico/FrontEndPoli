@@ -6,13 +6,19 @@ import { PersonasComponent } from './personas/personas.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { PlanetasComponent } from './planetas/planetas.component';
+import { EspeciesComponent } from './especies/especies.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { PeliculasComponent } from './peliculas/peliculas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonasComponent,
     MenuComponent,
-    PlanetasComponent
+    PlanetasComponent,
+    EspeciesComponent,
+    VehiculosComponent,
+    PeliculasComponent
   ],
   imports: [
     BrowserModule,
