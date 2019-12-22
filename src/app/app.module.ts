@@ -6,6 +6,9 @@ import { PersonasComponent } from './personas/personas.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { PlanetasComponent } from './planetas/planetas.component';
+import {PeliculasComponent} from './peliculas/peliculas.component';
+import {EspeciesComponent} from './especies/especies.component';
+import {VehiculosComponent} from './vehiculos/vehiculos.component';
 
 
 
@@ -14,8 +17,10 @@ import { PlanetasComponent } from './planetas/planetas.component';
     AppComponent,
     PersonasComponent,
     MenuComponent,
-    PlanetasComponent
-
+    PlanetasComponent,
+    PeliculasComponent,
+    EspeciesComponent,
+    VehiculosComponent
 
   ],
   imports: [
