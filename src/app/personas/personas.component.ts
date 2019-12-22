@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-personas',
@@ -19,11 +21,15 @@ export class PersonasComponent implements OnInit {
     { make: 'Porsche', model: 'Boxter', price: 72000 }
   ];
 
-  constructor() {
+  constructor(private _location: Location) {
   }
 
   ngOnInit() {
   }
 
+  back(){
+    this._location.back();
+  }
 }
+
 
