@@ -9,6 +9,7 @@
 
 /* visited link */
 
+a,
 a:visited {
     color: black;
 }
