@@ -9,6 +9,7 @@ import { PlanetasComponent } from './planetas/planetas.component';
 import { PeliculasComponent } from './peliculas/peliculas.component';
 import { EspeciesComponent } from './especies/especies.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { NavesComponent } from './naves/naves.component';
 
 
 
@@ -20,7 +21,8 @@ import { VehiculosComponent } from './vehiculos/vehiculos.component';
     PlanetasComponent,
     PeliculasComponent,
     EspeciesComponent,
-    VehiculosComponent
+    VehiculosComponent,
+    NavesComponent
 
 
 
