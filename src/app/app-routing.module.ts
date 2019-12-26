@@ -6,6 +6,7 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 import { EspeciesComponent } from './especies/especies.component';
 import { PlanetasComponent } from './planetas/planetas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { NavesComponent } from './naves/naves.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'especies', component: EspeciesComponent },
   { path: 'planetas', component: PlanetasComponent },
   { path: 'vehiculos', component: VehiculosComponent },
+  { path: 'naves', component: NavesComponent },
   { path: '**', pathMatch:'full', redirectTo:'menu'  }
 ];
 
