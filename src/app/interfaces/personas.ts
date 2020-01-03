@@ -1,17 +1,14 @@
 export interface Personas {
-  birth_year: string;
-  eye_color: string;
-  created: string;
-  diameter: string;
+  name: string;
+  height: string;
+  mass: string;
   hair_color: string;
-  edited?: string;
-  name?: string;
-  orbital_period?: string;
-  rotation_period?: string;
-  climate: string;
-  population: string;
-  gravity?: string;
-  surface_water?: string;
-  terrain?: string;
+  skin_color: string;
+  eye_color?: string;
+  birth_year?: string;
+  gender?: string;
+  homeworld?: string;
+  created: string;
+  edited: string;
   url?: string;
 }

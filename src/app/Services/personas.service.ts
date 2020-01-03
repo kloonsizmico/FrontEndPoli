@@ -13,6 +13,6 @@ export class PersonasService {
   constructor(private httpClient: HttpClient ) { }
 
   getAllPersonas(): Observable<Personas[]>  {
-    return this.httpClient.get<Personas[]>('https://swapi.co/api/planets/');
+    return this.httpClient.get<Personas[]>('https://swapi.co/api/people/');
   }
 }
