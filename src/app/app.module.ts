@@ -10,6 +10,7 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 import { EspeciesComponent } from './especies/especies.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { NavesComponent } from './naves/naves.component';
+import { HttpClientModule} from '@angular/common/http';
 
 
 
@@ -23,14 +24,12 @@ import { NavesComponent } from './naves/naves.component';
     EspeciesComponent,
     VehiculosComponent,
     NavesComponent
-
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AgGridModule.withComponents([  ])
+    AgGridModule.withComponents([  ]),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

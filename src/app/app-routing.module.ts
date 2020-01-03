@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'planetas', component: PlanetasComponent },
   { path: 'vehiculos', component: VehiculosComponent },
   { path: 'naves', component: NavesComponent },
-  { path: '**', pathMatch:'full', redirectTo:'menu'  }
+  { path: '**', pathMatch: 'full', redirectTo: 'menu'  }
 ];
 
 @NgModule({
