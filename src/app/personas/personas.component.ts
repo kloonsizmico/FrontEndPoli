@@ -13,8 +13,10 @@ import {AgGridAngular} from 'ag-grid-angular';
   styleUrls: ['./personas.component.css']
 })
 export class PersonasComponent implements OnInit {
+  private defaultColDef;
   // tslint:disable-next-line:variable-name
-  constructor(private _location: Location, private router: Router, private personasService: PersonasService, private http: HttpClient) {
+  constructor(private _location: Location, private router: Router, private personasService: PersonasService) {
+    this.defaultColDef = { resizable: true };
   }
   personas: Personas[];
   rowData: any;
@@ -36,19 +38,21 @@ export class PersonasComponent implements OnInit {
   // ];
   columnDefs = [
     {headerName: 'Nombre', field:  'name', sortable: true , filter: true},
-    {headerName: 'Altura', field: 'height', sortable: true, filter: true},
-    {headerName: 'Masa', field: 'mass', sortable: true, filter: true, },
-    {headerName: 'Color cabello', field: 'hair_color', sortable: true, filter: true, },
-    {headerName: 'Color piel', field: 'skin_color', sortable: true, filter: true, },
-    {headerName: 'Color ojos', field: 'eye_color', sortable: true, filter: true },
-    {headerName: 'Cumpleaños', field: 'birth_year', sortable: true, filter: true },
-    {headerName: 'Genero', field: 'gender', sortable: true, filter: true },
+    {headerName: 'Altura', width: 80 , field: 'height', sortable: true, filter: true},
+    {headerName: 'Masa', width: 80 , field: 'mass', sortable: true, filter: true, },
+    {headerName: 'Color cabello', width: 130 , field: 'hair_color', sortable: true, filter: true, },
+    {headerName: 'Color piel', width: 100 , field: 'skin_color', sortable: true, filter: true, },
+    {headerName: 'Color ojos', width: 100 , field: 'eye_color', sortable: true, filter: true },
+    {headerName: 'Cumpleaños', width: 150 , field: 'birth_year', sortable: true, filter: true },
+    {headerName: 'Genero', width: 110 , field: 'gender', sortable: true, filter: true },
     {headerName: 'Planeta', field: 'homeworld', sortable: true, filter: true },
     {headerName: 'Creado', field: 'created', sortable: true, filter: true },
     {headerName: 'Editado', field: 'edited', sortable: true, filter: true },
-    {headerName: 'Ubicación', field: 'url', sortable: true, filter: true }
-    // {headerName: 'starships', field: 'starships', sortable: true, filter: true },
+    {headerName: 'Ubicación', field: 'url', sortable: true, filter: true },
+
+  // {headerName: 'starships', field: 'starships', sortable: true, filter: true },
   ];
+
   ngOnInit() {
     this.getAllPersonas();
   }
