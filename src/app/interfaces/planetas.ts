@@ -1,17 +1,16 @@
 export interface Planetas {
-  birth_year: string;
-  eye_color: string;
-  created: string;
+  name: string;
   diameter: string;
-  hair_color: string;
-  edited?: string;
-  name?: string;
   orbital_period?: string;
   rotation_period?: string;
-  climate: string;
-  population: string;
   gravity?: string;
-  surface_water?: string;
+  population?: string;
+  climate?: string;
   terrain?: string;
+  surface_water?: string;
+  residents?: string;
+  films?: string;
   url?: string;
+  created?: string;
+  edited?: string;
 }
