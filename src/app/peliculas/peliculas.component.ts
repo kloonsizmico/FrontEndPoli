@@ -13,9 +13,9 @@ import { AgGridAngular } from 'ag-grid-angular';
   styleUrls: ['./peliculas.component.css']
 })
 export class PeliculasComponent implements OnInit {
-  
-  private defaultColDef;
+  public defaultColDef;
 
+  // tslint:disable-next-line:variable-name
   constructor( private _location: Location, private router: Router, private peliculasService: PeliculasService ) {
     this.defaultColDef = { resizable: true };
   }

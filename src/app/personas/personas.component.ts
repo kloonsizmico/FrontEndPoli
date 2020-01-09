@@ -13,7 +13,7 @@ import {AgGridAngular} from 'ag-grid-angular';
   styleUrls: ['./personas.component.css']
 })
 export class PersonasComponent implements OnInit {
-  private defaultColDef;
+  public defaultColDef;
   // tslint:disable-next-line:variable-name
   constructor(private _location: Location, private router: Router, private personasService: PersonasService) {
     this.defaultColDef = { resizable: true };
