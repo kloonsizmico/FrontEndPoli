@@ -5,7 +5,6 @@ import { VehiculosService } from '../Services/vehiculos.service';
 import { Vehiculos} from '../interfaces/vehiculos';
 import * as moment from 'moment';
 import { AgGridAngular } from 'ag-grid-angular';
-import { Vehiculos } from '../interfaces/vehiculos';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class VehiculosComponent implements OnInit {
 
   private defaultColDef;
 
-  constructor( private _location: Location, private router: Router, private planetasService: PlanetasService ) {
+  constructor( private _location: Location, private router: Router, private vehiculosService: VehiculosService ) {
     this.defaultColDef = { resizable: true, sortable: true, filter: true };
   }
   vehiculos: Vehiculos[];
