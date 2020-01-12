@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { VehiculosService } from '../Services/vehiculos.service';
@@ -14,7 +14,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 })
 export class VehiculosComponent implements OnInit {
 
-  private defaultColDef;
+  public defaultColDef;
 
   constructor( private _location: Location, private router: Router, private vehiculosService: VehiculosService ) {
     this.defaultColDef = { resizable: true, sortable: true, filter: true };

@@ -13,7 +13,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 })
 export class PlanetasComponent implements OnInit {
 
-  private defaultColDef;
+  public defaultColDef;
 
   constructor( private _location: Location, private router: Router, private planetasService: PlanetasService ) {
     this.defaultColDef = { resizable: true, sortable: true, filter: true };
@@ -46,7 +46,7 @@ export class PlanetasComponent implements OnInit {
     });
   }
 
-  back(){
+  back() {
     this._location.back();
   }
 
