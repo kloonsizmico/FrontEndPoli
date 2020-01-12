@@ -14,7 +14,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 })
 export class EspeciesComponent implements OnInit {
 
-  private defaultColDef;
+  public defaultColDef;
 
   constructor( private _location: Location, private router: Router, private especiesService: EspeciesService ) {
     this.defaultColDef = { resizable: true, sortable: true, filter: true };
