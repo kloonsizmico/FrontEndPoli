@@ -39,7 +39,7 @@ export class VehiculosComponent implements OnInit {
   ngOnInit() {
   }
 
-  back(){
+  back() {
     this._location.back();
   }
 

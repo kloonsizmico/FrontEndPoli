@@ -4,8 +4,8 @@ export interface Planetas {
   orbital_period?: string;
   rotation_period?: string;
   gravity?: string;
-  population?: string;
-  climate?: string;
+  population: string;
+  climate: string;
   terrain?: string;
   surface_water?: string;
   residents?: string;

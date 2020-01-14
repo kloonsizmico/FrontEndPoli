@@ -1,7 +1,7 @@
 export interface Vehiculos {
  name: string;
  model: string;
- vehicle_class?: string;
+ vehicle_class: string;
  manufacturer?: string;
  length?: string;
  cost_in_credits?: string;
