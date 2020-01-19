@@ -1,34 +1,31 @@
-  <h3 style="margin-top: 10px;"><a (click)="back()" style="cursor: pointer"><i class="fas fa-angle-left fa-1x"></i>
-    <i class="fas fa-user-alt-slash "></i><label><span c>&nbsp;Personas</span></label>
-  </a></h3>
+<div style="margin-left:-80px;">
+    <h3 style="margin-top:30px;">
+        <a (click)="back()" style="cursor: pointer">
+            <i class="fas fa-angle-left fa-1x"></i>
+            <i class="fas fa-user-alt-slash "></i>
+            <label><span>&nbsp;Personas</span></label>
+        </a>
+    </h3>
 
-<div class="classGridgeneral">
-  <ag-grid-angular
-  style="width: 1500px; height: 450px; "
-  class="ag-theme-balham"
-  [rowData]="(rowData?.results)"
-  [columnDefs]="columnDefs"
-  rowSelection="multiple"
-  [pagination]="true"
-  [defaultColDef]="defaultColDef"
-  >
-  </ag-grid-angular>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    <div class="classGridgeneral">
+        <ag-grid-angular style="width: 1500px; height: 350px; " class="ag-theme-balham" [rowData]="(rowData?.results)" [columnDefs]="columnDefs" rowSelection="multiple" [pagination]="true" [defaultColDef]="defaultColDef">
+        </ag-grid-angular>
+        <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav> -->
+    </div>
 </div>
-
