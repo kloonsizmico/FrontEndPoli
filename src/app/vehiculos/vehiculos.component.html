@@ -1,4 +1,4 @@
-<h3 style="margin-top: 10px;">
+<h3 style="position:absolute; top: 30px; left:20px;">
     <a (click)="back()" style="cursor: pointer">
         <i class="fas fa-angle-left fa-1x"></i>
         <i class="fas fa-car-crash"></i>
@@ -6,10 +6,10 @@
     </a>
 </h3>
 
-<div style="padding-right: 50px;" class="classGridgeneral">
-    <ag-grid-angular style="width: 1850px; height: 360px; " class="ag-theme-balham" [rowData]="(rowData?.results)" [columnDefs]="columnDefs" rowSelection="multiple" [pagination]="true" [defaultColDef]="defaultColDef">
+<div style="left: 20px;" class="classGridgeneral">
+    <ag-grid-angular style="width: 1500px; height: 360px; " class="ag-theme-balham" [rowData]="(rowData?.results)" [columnDefs]="columnDefs" rowSelection="multiple" [pagination]="true" [defaultColDef]="defaultColDef">
     </ag-grid-angular>
-    <nav aria-label="Page navigation example">
+    <!--<nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
@@ -25,5 +25,5 @@
                 </a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 </div>
