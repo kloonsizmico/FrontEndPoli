@@ -27,14 +27,22 @@ export class PlanetasComponent implements OnInit {
   columnDefs = [
     {headerName: 'Nombre', width: 130,  field:  'name' },
     {headerName: 'Diametro', width: 100, field: 'diameter'},
+    {headerName: 'Periodo de rotacion', width: 130,  field:  'rotation_period' },
+    {headerName: 'Gravedad', width: 130,  field:  'gravity' },
+    {headerName: 'Poblacion', width: 130,  field:  'population' },
+    {headerName: 'Clima', width: 130,  field:  'climate' },
+    {headerName: 'Terreno', width: 130,  field:  'terrain' },
+    {headerName: 'Superficie del agua', width: 130,  field:  'surface_water' },
+    {headerName: 'Residentes', width: 130,  field:  'residents' },
+    {headerName: 'Peliculas', width: 490,  field: 'films'},
+    {headerName: 'Ubicación', width: 210, field: 'url' },
     {headerName: 'Creado', width: 150,  field: 'created', valueFormatter(params) {
       return moment (params.value).format ('DD MMM, YYYY hh:mm'); }
       },
     {headerName: 'Editado', width: 150, field: 'edited',  valueFormatter(params) {
       return moment (params.value).format ('DD MMM, YYYY hh:mm'); }
       },
-    {headerName: 'Ubicación', width: 210, field: 'url' }
-  ];
+    ];
 
   ngOnInit() {
     this.getAllPlanetas();

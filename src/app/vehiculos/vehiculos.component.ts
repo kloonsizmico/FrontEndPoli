@@ -25,22 +25,37 @@ export class VehiculosComponent implements OnInit {
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
   columnDefs = [
-    {headerName: 'Nombre', width: 130,  field:  'name' },
-    {headerName: 'Diametro', width: 100, field: 'diameter'},
-    {headerName: 'Creado', width: 150,  field: 'created', valueFormatter(params) {
+    {headerName: 'Nombre', width: 180,  field:  'name' },
+    {headerName: 'Modelo', width: 190, field: 'model'},
+    {headerName: 'Clase Vehiculo', width: 190, field: 'vehicle_class'},
+    {headerName: 'Fabricante', width: 340,  field: 'manufacturer'},
+    {headerName: 'Longitud', width: 90,  field: 'length'},
+    {headerName: 'Costo en creditos', width: 140,  field: 'cost_in_credits'},
+    {headerName: 'Personal', width: 90,  field: 'crew'},
+    {headerName: 'Pasajeros', width: 100,  field: 'passengers'},
+    {headerName: 'Velocidad maxima de atmosfera', width: 220,  field: 'max_atmosphering_speed'},
+    {headerName: 'Capacidad de carga', width: 150,  field: 'cargo_capacity'},
+    {headerName: 'Consumibles', width: 110,  field: 'consumables'},
+    {headerName: 'Peliculas', width: 490,  field: 'films'},
+    {headerName: 'Pilotos', width: 370,  field: 'pilots'},
+    {headerName: 'Creado', width: 130,  field: 'created', sortable: true, filter: true, valueFormatter(params) {
       return moment (params.value).format ('DD MMM, YYYY hh:mm'); }
       },
-    {headerName: 'Editado', width: 150, field: 'edited',  valueFormatter(params) {
+    {headerName: 'Ubicación', field: 'url', sortable: true, filter: true },
+    {headerName: 'Editado', width: 130, field: 'edited', sortable: true, filter: true,  valueFormatter(params) {
       return moment (params.value).format ('DD MMM, YYYY hh:mm'); }
       },
-    {headerName: 'Ubicación', width: 210, field: 'url' }
   ];
 
   ngOnInit() {
+    this.getAllVehiculos();
   }
-
+  getAllVehiculos() {
+    this.vehiculosService.getAllVehiculos().subscribe(resp => {
+      this.rowData = resp;
+    });
+  }
   back() {
     this._location.back();
   }
-
 }
