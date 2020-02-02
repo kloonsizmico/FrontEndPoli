@@ -5,7 +5,7 @@ import {PersonasService} from '../Services/personas.service';
 import {Personas} from '../interfaces/personas';
 import * as moment from 'moment';
 import {AgGridAngular} from 'ag-grid-angular';
-
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-personas',
@@ -20,8 +20,10 @@ export class PersonasComponent implements OnInit {
   }
   personas: Personas[];
   rowData: any;
+  errorApi: string;
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
+
   // columnDefs = [
   //   {headerName: 'Nombre', field:  'name', sortable: true , filter: true},
   //   {headerName: 'Periodo rotación', field: 'rotation_period', sortable: true, filter: true},
@@ -58,8 +60,13 @@ export class PersonasComponent implements OnInit {
     this.getAllPersonas();
   }
   getAllPersonas() {
-    this.personasService.getAllPersonas().subscribe(resp => {
+    this.personasService.getAllPersonas().pipe(
+      catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
+    ).subscribe(resp => {
       this.rowData = resp;
+      if (resp === 222) { // si la respuesta del catch es un error , hacemos una redirección al menú principal
+        this.router.navigate(['/menu']);
+      }
     });
   }
   back() {

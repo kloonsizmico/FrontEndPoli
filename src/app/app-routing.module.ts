@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Router, RouterModule, Routes} from '@angular/router';
 import {PersonasComponent} from './personas/personas.component';
 import {MenuComponent} from './menu/menu.component';
 import { PeliculasComponent } from './peliculas/peliculas.component';
@@ -24,4 +24,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor() {}
+
+}
+

@@ -10,7 +10,9 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 import { EspeciesComponent } from './especies/especies.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { NavesComponent } from './naves/naves.component';
-import { HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {ManejoErroresService} from './manejoErrores/manejo-errores.service';
 
 
 
@@ -29,9 +31,14 @@ import { HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents([  ]),
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ManejoErroresService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
