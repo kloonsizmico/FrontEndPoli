@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { PeliculasService } from '../Services/peliculas.service';
 import { Peliculas } from '../interfaces/peliculas';
 import * as moment from 'moment';
-// import { HttpClient } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-peliculas',
@@ -22,6 +22,7 @@ export class PeliculasComponent implements OnInit {
 
   peliculas: Peliculas[];
   rowData: any;
+  errorApi: string;
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
 
@@ -47,8 +48,13 @@ export class PeliculasComponent implements OnInit {
   }
 
   getAllPeliculas() {
-    this.peliculasService.getAllPeliculas().subscribe(resp => {
+    this.peliculasService.getAllPeliculas().pipe(
+      catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
+    ).subscribe(resp => {
       this.rowData = resp;
+      if (resp === 222) { // si la respuesta del catch es un error , hacemos una redirección al menú principal
+        this.router.navigate(['/menu']);
+      }
     });
   }
 
