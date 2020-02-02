@@ -11,7 +11,7 @@ import {ManejoErroresService} from '../manejoErrores/manejo-errores.service';
   providedIn: 'root'
 })
 export class PersonasService {
-  public urlApi = 'https://swapi.co/api/peoplea/';
+  public urlApi = 'https://swapi.co/api/people/';
 
   constructor(private httpClient: HttpClient) {}
 
