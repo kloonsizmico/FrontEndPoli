@@ -5,6 +5,7 @@ import { EspeciesService } from '../Services/especies.service';
 import { Especies } from '../interfaces/especies';
 import * as moment from 'moment';
 import { AgGridAngular } from 'ag-grid-angular';
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class EspeciesComponent implements OnInit {
 
   especies: Especies[];
   rowData: any;
+  errorApi: string;
 
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
@@ -49,8 +51,13 @@ export class EspeciesComponent implements OnInit {
   }
 
   getAllEspecies() {
-    this.especiesService.getAllPeliculas().subscribe(resp => {
+    this.especiesService.getAllPeliculas().pipe(
+      catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
+    ).subscribe(resp => {
       this.rowData = resp;
+      if (resp === 222) { // si la respuesta del catch es un error , hacemos una redirección al menú principal
+        this.router.navigate(['/menu']);
+      }
     });
   }
 
