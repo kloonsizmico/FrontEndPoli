@@ -57,10 +57,10 @@ export class PersonasComponent implements OnInit {
     {headerName: 'Ubicación', field: 'url', sortable: true, filter: true },
   ];
   ngOnInit() {
-    this.getAllPersonas();
+    this.getAllPersonas(null);
   }
-  getAllPersonas() {
-    this.personasService.getAllPersonas().pipe(
+  getAllPersonas(idpage: number) {
+    this.personasService.getAllPersonas(idpage).pipe(
       catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
     ).subscribe(resp => {
       this.rowData = resp;
