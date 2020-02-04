@@ -47,11 +47,11 @@ export class PlanetasComponent implements OnInit {
     ];
 
   ngOnInit() {
-    this.getAllPlanetas();
+    this.getAllPlanetas( null );
   }
 
-  getAllPlanetas() {
-    this.planetasService.getAllPlanetas().pipe(
+  getAllPlanetas( idpages: number ) {
+    this.planetasService.getAllPlanetas( idpages ).pipe(
       catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
     ).subscribe(resp => {
       this.rowData = resp;

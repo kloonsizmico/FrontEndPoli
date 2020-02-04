@@ -8,10 +8,15 @@ import { Planetas } from '../interfaces/planetas';
   providedIn: 'root'
 })
 export class PlanetasService {
+  public urlApi = 'https://swapi.co/api/planets/';
 
   constructor( private httpClient: HttpClient) { }
 
-  getAllPlanetas(): Observable<Planetas[]> {
-    return this.httpClient.get<Planetas[]>( 'https://swapi.co/api/planets/' );
+  getAllPlanetas( idPage: number ): Observable<Planetas[]> {
+    if ( !idPage ) {
+      return this.httpClient.get<Planetas[]>( `${ this.urlApi }` );
+    } else {
+      return this.httpClient.get<Planetas[]>( `${ this.urlApi }?page=${ idPage }` );
+    }
   }
 }
