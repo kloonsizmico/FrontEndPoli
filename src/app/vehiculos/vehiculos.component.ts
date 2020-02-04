@@ -5,6 +5,7 @@ import { VehiculosService } from '../Services/vehiculos.service';
 import { Vehiculos} from '../interfaces/vehiculos';
 import * as moment from 'moment';
 import { AgGridAngular } from 'ag-grid-angular';
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -19,8 +20,10 @@ export class VehiculosComponent implements OnInit {
   constructor( private _location: Location, private router: Router, private vehiculosService: VehiculosService ) {
     this.defaultColDef = { resizable: true, sortable: true, filter: true };
   }
+  
   vehiculos: Vehiculos[];
   rowData: any;
+  errorApi: string;
 
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
@@ -48,13 +51,19 @@ export class VehiculosComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.getAllVehiculos();
+    this.getAllVehiculos( null );
   }
-  getAllVehiculos() {
-    this.vehiculosService.getAllVehiculos().subscribe(resp => {
+  getAllVehiculos( idpage: number ) {
+    this.vehiculosService.getAllVehiculos( idpage ).pipe(
+      catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
+    ).subscribe(resp => {
       this.rowData = resp;
+      if (resp === 222) { // si la respuesta del catch es un error , hacemos una redirección al menú principal
+        this.router.navigate(['/menu']);
+      }
     });
   }
+
   back() {
     this._location.back();
   }

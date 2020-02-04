@@ -8,10 +8,14 @@ import { Vehiculos } from '../interfaces/vehiculos';
   providedIn: 'root'
 })
 export class VehiculosService {
-
+  public urlApi = 'https://swapi.co/api/vehicles/';
   constructor( private httpClient: HttpClient) { }
 
-  getAllVehiculos(): Observable<Vehiculos[]> {
-    return this.httpClient.get<Vehiculos[]>( 'https://swapi.co/api/vehicles/' );
+  getAllVehiculos( idpage: number ): Observable<Vehiculos[]> {
+    if ( !idpage ) {
+      return this.httpClient.get<Vehiculos[]>( `${ this.urlApi }` );
+    } else {
+      return this.httpClient.get<Vehiculos[]>( `${ this.urlApi }?page=${ idpage }` );
+    }
   }
 }

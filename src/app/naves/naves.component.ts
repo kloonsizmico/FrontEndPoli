@@ -5,6 +5,8 @@ import { NavesService } from '../Services/naves.service';
 import { Naves } from '../interfaces/naves';
 import * as moment from 'moment';
 import { AgGridAngular } from 'ag-grid-angular';
+import { catchError } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-naves',
@@ -27,6 +29,7 @@ export class NavesComponent implements OnInit {
 
   naves: Naves[];
   rowData: any;
+  errorApi: string;
 
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
@@ -55,12 +58,17 @@ export class NavesComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.getAllNaves();
+    this.getAllNaves(  null );
   }
 
-  getAllNaves() {
-    this.navesService.getAllNaves().subscribe(resp => {
+  getAllNaves( idpage: number ) {
+    this.navesService.getAllNaves( idpage ).pipe(
+      catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
+    ).subscribe(resp => {
       this.rowData = resp;
+      if (resp === 222) { // si la respuesta del catch es un error , hacemos una redirección al menú principal
+        this.router.navigate(['/menu']);
+      }
     });
   }
 

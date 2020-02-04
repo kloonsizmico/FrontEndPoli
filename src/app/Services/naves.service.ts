@@ -8,10 +8,14 @@ import { Naves } from '../interfaces/naves';
   providedIn: 'root'
 })
 export class NavesService {
-
+  public urlApi = 'https://swapi.co/api/starships/';
   constructor( private httpClient: HttpClient) { }
 
-  getAllNaves(): Observable<Naves[]> {
-    return this.httpClient.get<Naves[]>( 'https://swapi.co/api/starships/' );
+  getAllNaves( idpage: number ): Observable<Naves[]> {
+    if ( !idpage ) {
+      return this.httpClient.get<Naves[]>( `${ this.urlApi }` );
+    } else {
+      return this.httpClient.get<Naves[]>( `${ this.urlApi }?page=${ idpage }` );
+    }
   }
 }
