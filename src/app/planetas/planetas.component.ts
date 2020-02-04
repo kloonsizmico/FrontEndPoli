@@ -5,6 +5,7 @@ import { PlanetasService } from '../Services/planetas.service';
 import { Planetas } from '../interfaces/planetas';
 import * as moment from 'moment';
 import { AgGridAngular } from 'ag-grid-angular';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-planetas',
@@ -21,6 +22,7 @@ export class PlanetasComponent implements OnInit {
 
   planetas: Planetas[];
   rowData: any;
+  errorApi: string;
 
   // @ts-ignore
   @ViewChild('agGrid') agGrid: AgGridAngular;
@@ -49,8 +51,13 @@ export class PlanetasComponent implements OnInit {
   }
 
   getAllPlanetas() {
-    this.planetasService.getAllPlanetas().subscribe(resp => {
+    this.planetasService.getAllPlanetas().pipe(
+      catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
+    ).subscribe(resp => {
       this.rowData = resp;
+      if (resp === 222) { // si la respuesta del catch es un error , hacemos una redirección al menú principal
+        this.router.navigate(['/menu']);
+      }
     });
   }
 
