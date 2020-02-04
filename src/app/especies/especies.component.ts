@@ -47,11 +47,11 @@ export class EspeciesComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.getAllEspecies();
+    this.getAllEspecies( null );
   }
 
-  getAllEspecies() {
-    this.especiesService.getAllPeliculas().pipe(
+  getAllEspecies( idpage: number ) {
+    this.especiesService.getAllEspecies( idpage ).pipe(
       catchError(err => this.errorApi = err) // Enviamos el catch al servicio  de Manejo de errores
     ).subscribe(resp => {
       this.rowData = resp;

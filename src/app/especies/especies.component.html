@@ -9,21 +9,22 @@
 <div style="left: 20px;" class="classGridgeneral">
     <ag-grid-angular style="width: 1500px; height: 370px; " class="ag-theme-balham" [rowData]="(rowData?.results)" [columnDefs]="columnDefs" rowSelection="multiple" [pagination]="true" [defaultColDef]="defaultColDef">
     </ag-grid-angular>
-    <!-- <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item">
+            <!-- <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
+            </li> -->
+            <li (click)="getAllEspecies(1)" class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+            <li (click)="getAllEspecies(2)" class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+            <li (click)="getAllEspecies(3)" class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+            <li (click)="getAllEspecies(4)" class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+            <!-- <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
-    </nav> -->
+    </nav>
 </div>

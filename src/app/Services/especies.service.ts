@@ -9,10 +9,16 @@ import { Especies } from '../interfaces/especies';
   providedIn: 'root'
 })
 export class EspeciesService {
+  public urlApi = 'https://swapi.co/api/species/';
 
   constructor( private httpClient: HttpClient) { }
 
-  getAllPeliculas(): Observable<Especies[]> {
-    return this.httpClient.get<Especies[]>( 'https://swapi.co/api/species/' );
+  getAllEspecies(idPage: number): Observable<Especies[]> {
+    if(!idPage) {
+      return this.httpClient.get<Especies[]>( `${this.urlApi}` );
+    } else {
+      return this.httpClient.get<Especies[]>( `${this.urlApi}?page=${idPage}` );
+
+    }
   }
 }
